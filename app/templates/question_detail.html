@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a href="{% url 'teacher:questions' %}">&larr;</a>
+    {{ object.text }}
+    Image
+    <img src="{{object.image.url}}" style='width: 100%; height: auto;'>
+{% endblock content %}

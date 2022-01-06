@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block content %}
+{% if messages %}
+
+{% endif %}
+<a href="{% url 'teacher:add_question' %}">Add</a>
+    <table>
+        <thead>
+            <th>Text</th>
+            <th>Image</th>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+            <tr>
+                <td><a href="{% url 'teacher:question_detail' question.id %}">{{question}}</a></td>
+                <td>
+                    {% thumbnail question.image "100x100" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
