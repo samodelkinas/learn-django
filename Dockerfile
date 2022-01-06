@@ -9,3 +9,4 @@ WORKDIR /app
 COPY ./app /app/
 RUN adduser -D user
 USER user
+ENTRYPOINT python manage.py runserver 0.0.0.0:8000
